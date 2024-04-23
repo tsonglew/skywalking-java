@@ -42,7 +42,8 @@ public class MongoDBOperationExecutorInterceptor implements InstanceMethodsAroun
         // See: MongoDBClientDelegateInterceptor.afterMethod
         String remotePeer = (String) objInst.getSkyWalkingDynamicField();
         if (LOGGER.isDebugEnable()) {
-            LOGGER.debug("Mongo execute: [executeMethod: {}, remotePeer: {}]", executeMethod, remotePeer);
+//            LOGGER.debug("Mongo execute: [executeMethod: {}, remotePeer: {}]", executeMethod, remotePeer);
+            LOGGER.info("Mongo execute: [executeMethod: {}, remotePeer: {}, arguments: {}]", executeMethod, remotePeer, allArguments);
         }
         MongoSpanHelper.createExitSpan(executeMethod, remotePeer, allArguments[0]);
     }
